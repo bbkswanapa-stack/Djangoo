@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sci-Fi Welcome</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background:
+        radial-gradient(circle at top, rgba(0,255,255,0.15), transparent 30%),
+        radial-gradient(circle at bottom, rgba(140,0,255,0.15), transparent 30%),
+        #050816;
+      overflow: hidden;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow:
+        0 0 25px rgba(0,255,255,0.08),
+        inset 0 0 25px rgba(255,255,255,0.03);
+    }
+
+    .glow {
+      text-shadow:
+        0 0 10px #201536,
+        0 0 20px #00ffff,
+        0 0 40px #00ffff;
+    }
+
+    .line {
+      position: absolute;
+      background: linear-gradient(to bottom, transparent, #00ffff, transparent);
+      width: 1px;
+      height: 100%;
+      opacity: 0.15;
+      animation: move 6s linear infinite;
+    }
+
+    @keyframes move {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(100%);
+      }
+    }
+
+    .pulse-ring::before {
+      content: "";
+      position: absolute;
+      inset: -15px;
+      border-radius: 9999px;
+      border: 1px solid rgba(30, 0, 255, 0.4);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.9);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.4);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center relative text-white">
+
+  <!-- Animated Lines -->
+  <div class="line left-[20%]"></div>
+  <div class="line left-[40%]" style="animation-delay:1s"></div>
+  <div class="line left-[60%]" style="animation-delay:2s"></div>
+  <div class="line left-[80%]" style="animation-delay:3s"></div>
+
+  <!-- Main Card -->
+  <div class="glass w-[90%] max-w-6xl rounded-[40px] p-10 md:p-16 relative overflow-hidden">
+
+    <!-- Top Glow -->
+    <div class="absolute top-0 left-0 w-full h-[2px] bg-cyan-400 shadow-[0_0_25px_#00ffff]"></div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <!-- Left -->
+      <div>
+
+        <p class="uppercase tracking-[10px] text-cyan-300 text-sm mb-6">
+          Future Interface
+        </p>
+
+        <h1 class="text-6xl md:text-7xl font-black leading-tight mb-6">
+          Welcome
+          <span class="block glow text-cyan-400">
+            {{name}}
+          </span>
+        </h1>
+
+        <p class="text-zinc-300 text-lg leading-relaxed max-w-xl mb-10">
+          Enter the next-generation digital universe.
+          Designed with futuristic aesthetics, neon glows,
+          holographic glass effects, and immersive sci-fi vibes.
+        </p>
+
+        <div class="flex gap-5 flex-wrap">
+
+          <button class="px-8 py-4 rounded-2xl bg-cyan-400 text-black font-bold hover:scale-105 transition duration-300 shadow-[0_0_25px_#00ffff]">
+            Initialize
+          </button>
+
+          <button class="px-8 py-4 rounded-2xl border border-cyan-400 text-cyan-300 hover:bg-cyan-400/10 transition duration-300">
+            System Access
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- Right -->
+      <div class="flex items-center justify-center relative">
+
+        <!-- Orb -->
+        <div class="relative pulse-ring">
+
+          <div class="w-72 h-72 rounded-full bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 shadow-[0_0_80px_rgba(0,255,255,0.6)] flex items-center justify-center">
+
+            <div class="w-52 h-52 rounded-full border border-white/20 backdrop-blur-xl flex items-center justify-center">
+
+              <div class="text-center">
+                <p class="text-cyan-200 tracking-[6px] text-xs mb-2">
+                  SYSTEM STATUS
+                </p>
+
+                <h2 class="text-4xl font-bold glow text-white">
+                  ONLINE
+                </h2>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

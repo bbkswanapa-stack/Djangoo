@@ -13,6 +13,12 @@ resolution-markers = [
     "python_full_version < '3.12' and sys_platform != 'emscripten' and sys_platform != 'win32'",
 ]
 
+[manifest]
+members = [
+    "django-class",
+    "django-practice",
+]
+
 [[package]]
 name = "asgiref"
 version = "3.11.1"
@@ -78,6 +84,11 @@ requires-dist = [
     { name = "django", specifier = ">=5.2.14" },
     { name = "pandas", specifier = ">=3.0.3" },
 ]
+
+[[package]]
+name = "django-practice"
+version = "0.1.0"
+source = { virtual = "Django practice" }
 
 [[package]]
 name = "numpy"
